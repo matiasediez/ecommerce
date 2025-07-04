@@ -27,7 +27,6 @@ export function createModal(p) {
             <img src="${p.images[0]}" class="img-fluid mb-3" alt="${p.title}">
             <p>${p.description}</p>
             <p><strong>Precio:</strong> $${p.price}</p>
-            <p><small class="text-muted">Categoría: ${p.category.name}</small></p>
           </div>
           <div class="modal-footer">
             <button
