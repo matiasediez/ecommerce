@@ -3,8 +3,8 @@ export function initCartSidebar() {
     const cartItemsEl = document.getElementById("cart-items");
     const offcanvasEl = document.getElementById("cartOffcanvas");
     const checkoutBtn = document.getElementById("checkoutBtn");
+    const clearBtn = document.getElementById("clearCartBtn");
 
-    // 1) Leer y normalizar carrito
     function getCart() {
         const raw = JSON.parse(localStorage.getItem("cart")) || [];
         return raw.map(item => ({
@@ -13,19 +13,13 @@ export function initCartSidebar() {
         }));
     }
 
-    // 2) Guardar carrito
     function saveCart(cart) {
         localStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    // 3) Render y sincronización
     function renderCart() {
-        let cart = getCart();
+        const cart = getCart();
 
-        // **Sincroniza** el localStorage cada vez que re-renderizas
-        saveCart(cart);
-
-        // Actualiza badge
         const totalCount = cart.reduce((sum, it) => sum + it.quantity, 0);
         cartCountEl.textContent = totalCount;
 
@@ -75,12 +69,10 @@ export function initCartSidebar() {
         });
     }
 
-    // 4) Cada vez que abres el sidebar, refresca y guarda
     offcanvasEl.addEventListener("show.bs.offcanvas", renderCart);
 
-    // 5) Delegación de eventos para botones
     cartItemsEl.addEventListener("click", (e) => {
-        let cart = getCart();
+        const cart = getCart();
         const idx = parseInt(e.target.dataset.index, 10);
 
         if (e.target.matches(".btn-decrease")) {
@@ -102,22 +94,22 @@ export function initCartSidebar() {
         }
     });
 
-    // 6) Checkout
-    checkoutBtn.addEventListener("click", () => {
-        const cart = getCart();
-        //alert(`Procesando compra de ${cart.reduce((s, it) => s + it.quantity, 0)} productos.`);
-    });
-
     const bsOffcanvas = new bootstrap.Offcanvas(offcanvasEl);
 
-    // Checkout: vacía carrito, actualiza UI, cierra sidebar y muestra toast
+    clearBtn.addEventListener("click", () => {
+        localStorage.setItem("cart", JSON.stringify([]));
+        renderCart();
+        const toastEl = document.getElementById("cartToast");
+        const toastBd = toastEl.querySelector(".toast-body");
+        toastBd.textContent = "Carrito vaciado correctamente 🗑️";
+        const bsToast = new bootstrap.Toast(toastEl, { delay: 2000 });
+        bsToast.show();
+    });
+
     checkoutBtn.addEventListener("click", () => {
         localStorage.setItem("cart", JSON.stringify([]));
-
         renderCart();
-
         bsOffcanvas.hide();
-
         const toastEl = document.getElementById("cartToast");
         const toastBd = toastEl.querySelector(".toast-body");
         toastBd.textContent = "¡Gracias por tu compra! 🛒";
