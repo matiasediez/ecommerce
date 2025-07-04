@@ -12,27 +12,21 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="#">Mi tienda Istea</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand mb-0 h1" href="#">Mi tienda Istea</a>
 
-        <div class="mx-auto" style="width: 300px;">
+        <div class="flex-fill mx-3" style="max-width: 400px;">
           <input id="productSearch" class="form-control" type="search" placeholder="Buscar producto…"
             aria-label="Buscar producto" />
         </div>
 
-        <div class="d-flex align-items-center">
-          <button class="btn position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas"
-            aria-controls="cartOffcanvas">
-            <i class="bi bi-cart-fill fs-4"></i>
-            <span id="cart-count"
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-          </button>
-        </div>
+        <button class="btn position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas"
+          aria-controls="cartOffcanvas">
+          <i class="bi bi-cart-fill fs-4"></i>
+          <span id="cart-count"
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </button>
       </div>
     </nav>
 
