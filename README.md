@@ -5,22 +5,25 @@ Este es un proyecto de e-commerce simple y responsivo desarrollado con **HTML5**
 ---
 
 ## 📁 Estructura del proyecto
+
+```plaintext
 .
-├── index.html # Página principal
-├── README.md # Documentación del proyecto
+├── index.html               # Página principal
+├── README.md                # Documentación del proyecto
 ├── .gitignore
 ├── css/
-│ └── styles.css # Estilos personalizados
+│   └── styles.css           # Estilos personalizados
 └── src/
-├── index.js # Punto de entrada JS (modular)
-├── api/
-│ └── api.js # Fetch de productos
-└── components/ # Componentes funcionales
-├── cards.js
-├── cart.js
-├── cartSidebar.js
-├── modal.js
-└── search.js
+    ├── index.js             # Punto de entrada JS (modular)
+    ├── api/
+    │   └── api.js           # Fetch de productos
+    └── components/          # Componentes funcionales
+        ├── cards.js
+        ├── cart.js
+        ├── cartSidebar.js
+        ├── modal.js
+        └── search.js
+
 
 ---
 
