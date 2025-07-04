@@ -10,7 +10,7 @@ export function createCards() {
         const payload = encodeURIComponent(JSON.stringify(p));
         const template = `
             <div class="col">
-                <div class="card h-100">
+                <div class="card h-100 bg-white">
                 <img src="${p.images[0]}" class="card-img-top" alt="${p.title}">
                     <div class="card-body d-flex flex-column justify-content-between align-items-center text-center h-100">
                     <h5 class="card-title clamp-2">${p.title}</h5>

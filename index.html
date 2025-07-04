@@ -10,29 +10,33 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <!-- <link rel="stylesheet" href="css/styles.css"> -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body class="bs-body-bg">
 
   <header>
     <!-- Navbar -->
-    <nav class="navbar bg-body-tertiary">
+    <nav class="navbar bg-primary bs-light">
       <div class="container d-flex justify-content-between align-items-center mt-2 mb-2">
-        <a class="navbar-brand mb-0 h1" href="#">Mi tienda Istea</a>
+        <a class="navbar-brand mb-0 h1 text-white" href="#">Mi tienda Istea</a>
 
         <div class="flex-fill mx-3" style="max-width: 400px;">
           <label for="productSearch" class="visually-hidden">Buscar producto</label>
-          <input id="productSearch" class="form-control" type="search" placeholder="Buscar producto…"
-            aria-label="Buscar producto" />
+          <div class="input-group">
+            <span class="input-group-text" id="search-icon">
+              <i class="bi bi-search" aria-hidden="true"></i>
+            </span>
+            <input id="productSearch" class="form-control" type="search" placeholder="Buscar producto…"
+              aria-label="Buscar producto" aria-describedby="search-icon" />
+          </div>
         </div>
 
         <button class="btn position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas"
           aria-controls="cartOffcanvas">
-          <i class="bi bi-cart-fill fs-4" aria-hidden="true"></i>
+          <i class="bi bi-cart-fill fs-4 text-white" aria-hidden="true"></i>
           <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
             aria-live="polite">0</span>
-          <span class="visually-hidden">Artículos en el carrito</span>
         </button>
       </div>
     </nav>

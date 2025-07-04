@@ -1,3 +1,12 @@
+:root {
+  --bs-primary:   #0d6efd;
+  --bs-secondary: #66BB6A;
+  --bs-success:   #66BB6A;
+  --bs-light:     #F8F9FA;
+
+  --bs-body-bg:   #f6f6f6;
+}
+
 .clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
