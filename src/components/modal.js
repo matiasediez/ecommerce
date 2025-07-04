@@ -1,10 +1,10 @@
-export function createModal(p) {
-  // Remuevo modales anteriores
-  const prev = document.getElementById('productModal');
-  if (prev) prev.remove();
+import { addToCart } from "./cart.js";
 
-  // Modal html
-  const modalHtml = `
+export function createModal(p) {
+    const prev = document.getElementById('productModal');
+    if (prev) prev.remove();
+
+    const modalHtml = `
     <div
       class="modal fade"
       id="productModal"
@@ -29,22 +29,22 @@ export function createModal(p) {
             <p><strong>Precio:</strong> $${p.price}</p>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >Cerrar</button>
-            <button type="button" class="btn btn-primary">Comprar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="btn-add-cart">Agregar al carrito</button>
           </div>
         </div>
       </div>
     </div>`;
 
-  // Inyecto el modal en el body
-  document.body.insertAdjacentHTML('beforeend', modalHtml);
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
 
-  // Instancio y muestro el modal
-  const modalEl = document.getElementById('productModal');
-  const bsModal = new bootstrap.Modal(modalEl);
-  bsModal.show();
+    const modalEl = document.getElementById('productModal');
+    const bsModal = new bootstrap.Modal(modalEl);
+    bsModal.show();
+
+    document.getElementById('btn-add-cart').addEventListener('click', () => {
+        addToCart(p);
+        document.activeElement.blur();
+        bsModal.hide();  
+    });
 }
