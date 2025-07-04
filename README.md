@@ -23,7 +23,7 @@ Este es un proyecto de e-commerce simple y responsivo desarrollado con **HTML5**
         ├── cartSidebar.js
         ├── modal.js
         └── search.js
-
+```
 
 ---
 
