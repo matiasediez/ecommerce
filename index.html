@@ -13,32 +13,25 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Mi tienda</a>
+      <div class="container">
+        <a class="navbar-brand" href="#">Mi tienda Istea</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Nav vacío a la izquierda para empujar el buscador al centro -->
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+        <div class="mx-auto" style="width: 300px;">
+          <input id="productSearch" class="form-control" type="search" placeholder="Buscar producto…"
+            aria-label="Buscar producto" />
+        </div>
 
-          <!-- BUSCADOR en el centro -->
-          <div class="mx-auto" style="width: 300px;">
-            <input id="productSearch" class="form-control" type="search" placeholder="Buscar producto…"
-              aria-label="Buscar producto" />
-          </div>
-
-          <!-- Carrito a la derecha -->
-          <div class="d-flex align-items-center">
-            <button class="btn position-relative" type="button" data-bs-toggle="offcanvas"
-              data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
-              <i class="bi bi-cart-fill fs-4"></i>
-              <span id="cart-count"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-            </button>
-          </div>
+        <div class="d-flex align-items-center">
+          <button class="btn position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas"
+            aria-controls="cartOffcanvas">
+            <i class="bi bi-cart-fill fs-4"></i>
+            <span id="cart-count"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+          </button>
         </div>
       </div>
     </nav>
@@ -70,7 +63,8 @@
       </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    </div>
   </main>
 
   <!-- Toast container -->
