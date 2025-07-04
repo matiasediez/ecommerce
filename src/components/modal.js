@@ -1,10 +1,10 @@
 import { addToCart } from "./cart.js";
 
 export function createModal(p) {
-    const prev = document.getElementById('productModal');
-    if (prev) prev.remove();
+  const prev = document.getElementById('productModal');
+  if (prev) prev.remove();
 
-    const modalHtml = `
+  const modalHtml = `
     <div
       class="modal fade"
       id="productModal"
@@ -15,7 +15,7 @@ export function createModal(p) {
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="productModalLabel">${p.title}</h5>
+            <h5 class="modal-title text-center w-100" id="productModalLabel">${p.title}</h5>
             <button
               type="button"
               class="btn-close"
@@ -26,25 +26,24 @@ export function createModal(p) {
           <div class="modal-body">
             <img src="${p.images[0]}" class="img-fluid mb-3" alt="${p.title}">
             <p>${p.description}</p>
-            <p><strong>Precio:</strong> $${p.price}</p>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <div class="modal-footer justify-content-between d-flex">
+            <p><strong>Precio:</strong> $${p.price}</p>
             <button type="button" class="btn btn-primary" id="btn-add-cart">Agregar al carrito</button>
           </div>
         </div>
       </div>
     </div>`;
 
-    document.body.insertAdjacentHTML('beforeend', modalHtml);
+  document.body.insertAdjacentHTML('beforeend', modalHtml);
 
-    const modalEl = document.getElementById('productModal');
-    const bsModal = new bootstrap.Modal(modalEl);
-    bsModal.show();
+  const modalEl = document.getElementById('productModal');
+  const bsModal = new bootstrap.Modal(modalEl);
+  bsModal.show();
 
-    document.getElementById('btn-add-cart').addEventListener('click', () => {
-        addToCart(p);
-        document.activeElement.blur();
-        bsModal.hide();  
-    });
+  document.getElementById('btn-add-cart').addEventListener('click', () => {
+    addToCart(p);
+    document.activeElement.blur();
+    bsModal.hide();
+  });
 }
